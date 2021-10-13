@@ -23,9 +23,8 @@
     {
         $nombreFoto = $row['Foto'];
         echo '<tr>';
-        echo "<td><img src=\"/uploads/$nombreFoto\"></td>";
-        echo "<td><a href='" . FOLDER_PATH . "/Plato/removePlato/{$row['Id']}'>Eliminar</a></td>";
-        
+        echo "<td><img src=\"/uploads/$nombreFoto\" width=\"30%\" height=\"30%\"></td>";
+        echo "<td><a href='" . FOLDER_PATH . "/Plato/removeFotoPlato/{$row['IdPlato']}"."&"."{$nombreFoto}'>Eliminar</a></td>";
         echo '</tr>';
     }
     ?>

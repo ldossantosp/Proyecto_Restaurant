@@ -24,6 +24,7 @@ define('PATH_VIEWS', FOLDER_PATH . '/app/views/');
 define('PATH_CONTROLLERS', 'app/controllers/'); 
 define('HELPER_PATH', 'system/helpers/');
 define('PATH_UPLOAD_IMAGES', ROOT .'/uploads/');
+define ('LIBS_ROUTE', ROOT . FOLDER_PATH . '/system/libs/');
 /////////////////////////////////////////////
 //Valores de base de datos
 /////////////////////////////////////////////

@@ -16,7 +16,6 @@ class PlatoModel extends Model
 
     public function PlatoList($id)
     {
-
         $sql ="SELECT * FROM Plato WHERE Id ='{$id}'";
         
         return $this->db->query($sql);
@@ -24,7 +23,6 @@ class PlatoModel extends Model
 
     public function PlatoFotos($id)
     {
-
         $sql = "SELECT  * FROM PlatoFoto WHERE IdPlato = '{$id}'";
         return $this->db->query($sql);
     }
@@ -52,7 +50,11 @@ class PlatoModel extends Model
                 return $this->db->query($sql);
             }
         }
+    }
 
+    public function removeFotoPlato($nombreFoto){
+        $sql ="DELETE FROM PlatoFoto WHERE Foto='{$nombreFoto}'";
+        return $this->db->query($sql);
     }
 
     public function updatePlato($params)
@@ -63,21 +65,20 @@ class PlatoModel extends Model
             $id = $params['id'];
 
             $sql = "UPDATE Plato SET Descripcion='{$descripcion}', Precio='{$precio}', Nombre='{$nombre}' WHERE Id='{$id}'";
-       
             return $this->db->query($sql);
 
     }
 
     public function removePlato($id)
     {
-        //$nombre = str_replace("%C3%B1","ñ",$nombre);
+        $nombre = str_replace("%C3%B1","ñ",$nombre);
+        $nombre = str_replace("%C3%91","ñ",$nombre);
+        $nombre = str_replace("%20"," ",$nombre);
         //elimina las fotos del plato
         $sql = "DELETE FROM PlatoFoto where IdPlato={$id}";
-        echo $sql;
         $this->db->query($sql);
 
         $sql ="DELETE FROM Plato WHERE Id='{$id}'";
-
         return $this->db->query($sql);
     }
 }
