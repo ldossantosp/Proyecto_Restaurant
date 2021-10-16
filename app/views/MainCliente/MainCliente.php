@@ -14,9 +14,9 @@
 </head>
 <body>
     <nav class="navbar navbar-default">
-        <p class="navbar-brand">Bienvenido CLiente</p>
+        <p class="navbar-brand">Bienvenido Cliente</p>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?= FOLDER_PATH . '/Plato/formulario'?>">Realizar Reserva</a></li>
+            <li><a href="<?= FOLDER_PATH . '/MainCliente/reserva'?>">Realizar Reserva</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $nombre?> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -25,8 +25,10 @@
         </ul>
     </nav> 
 
-    <div class="jumbotron">
+  
+    <div class="container">
         <?php !empty($show_menuPlatos) ? require 'app/views/MainCliente/menuPlatos.php' : '' ?>
+        <?php !empty($show_reserva) ? require 'app/views/MainCliente/reserva.php' : '' ?>
     </div>
 </body>
 </html>

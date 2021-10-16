@@ -1,0 +1,1 @@
+<?php !empty($message) ? print("<div class=\"alert alert-$message_type\">$message</div>") : '' ?>

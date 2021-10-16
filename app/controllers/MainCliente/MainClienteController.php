@@ -38,4 +38,26 @@ class MainClienteController extends Controller
         $params = array('info_plato' => $info_plato, 'nombre'=>$this->session->get('nombre'), 'show_menuPlatos' => true);
         $this->render(__CLASS__, $params);
     }
+
+    public function reserva()
+    {
+        $params = array('show_reserva'=> true, 'nombre'=>$this->session->get('nombre'));
+        $this->render(__CLASS__, $params);
+    }
+
+    public function RealizarReserva($request_params)
+    {
+        $result = $this->model->obtenerMesasDisponibles($request_params);
+
+        if(!$result || !$this->model->affected_rows()){
+            $this->showReservaMessage('No hay mesas disponibles', 'danger');
+        }
+        //$this->model->RealizarReserva($request_params, $this->session->get('cedula'));
+    }
+
+    public function showReservaMessage($message, $message_type)
+    {
+        $params = array("message"=>$message, "message_type"=>$message_type, 'show_info_reserva'=>true);
+        return $this->render(__CLASS__, $params);
+    }   
 }
